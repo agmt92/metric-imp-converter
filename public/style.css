@@ -1,5 +1,11 @@
+body {
+    background-color: rgb(47, 47, 47);
+    color: white;
+}
+
 code {
-    background-color: whitesmoke;
+    background-color: rgb(75, 75, 75);
+    color: white;
 }
 
 section, header {
