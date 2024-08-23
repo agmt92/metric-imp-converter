@@ -22,6 +22,9 @@ function ConvertHandler() {
     if (!result) {
       result = false;
       return result;
+    } else if (result === "l") {
+      result = "L";
+      return result;
     } else if (!unitArr.includes(result)) {
       result = false;
       return result;
@@ -34,6 +37,9 @@ function ConvertHandler() {
     switch (initUnit) {
       case "gal":
         result = "L";
+        break;
+      case "L":
+        result = "gal";
         break;
       case "l":
         result = "gal";
@@ -100,7 +106,7 @@ function ConvertHandler() {
       case "gal":
         result = initNum * galToL;
         break;
-      case "l":
+      case "L":
         result = initNum / galToL;
         break;
       case "mi":
@@ -118,6 +124,10 @@ function ConvertHandler() {
       default:
         result = false;
         break;
+    } if (!result) {
+      return result;
+    } else {
+      result = parseFloat(result.toFixed(5));
     }
     return result;
   };
@@ -135,7 +145,7 @@ function ConvertHandler() {
       result = "invalid number";
       return result;
     } else {
-      result = `${initNum} ${this.spellOutUnit(initUnit)} converts to ${returnNum.toFixed(5)} ${this.spellOutUnit(returnUnit)}`;
+      result = `${initNum} ${this.spellOutUnit(initUnit)} converts to ${parseFloat(returnNum.toFixed(5))} ${this.spellOutUnit(returnUnit)}`;
     }
     return result;
   };
