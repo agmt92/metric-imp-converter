@@ -17,11 +17,11 @@ module.exports = function (app) {
       let returnUnit = convertHandler.getReturnUnit(initUnit);
       let toString = convertHandler.getString(initNum, initUnit, returnNum, returnUnit);
       
-      if (initNum === 'invalid number' && initUnit === 'invalid unit') {
+      if (!initNum && !returnUnit) {
         res.json('invalid number and unit');
-      } else if (initNum === 'invalid number') {
+      } else if (!initNum) {
         res.json('invalid number');
-      } else if (initUnit === 'invalid unit') {
+      } else if (!initUnit) {
         res.json('invalid unit');
       } else {
         res.json({initNum, initUnit, returnNum, returnUnit, string: toString});
