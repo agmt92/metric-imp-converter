@@ -21,7 +21,11 @@ function ConvertHandler() {
     result = resultArr[resultArr.length - 1].toLowerCase();
     if (!result) {
       result = false;
-    } 
+      return result;
+    } else if (!unitArr.includes(result)) {
+      result = false;
+      return result;
+    }
     return result;
   };
   
